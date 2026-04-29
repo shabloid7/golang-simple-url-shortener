@@ -1,6 +1,6 @@
 # url-shortener
 
-A simple URL shortening service built with Go, Gin, and Redis. Paste a long URL, get a short one back, done.
+A simple URL shortening service built with Go, Gin, and Redis.
 
 ## Stack
 
@@ -15,7 +15,7 @@ url-shortener/
 ├── cmd/url-shortener/     # entry point
 ├── internal/
 │   ├── config/            # reads env variables
-    ├── errors/            # prepared errors
+│   ├── errors/            # prepared errors
 │   ├── handler/           # HTTP handlers (Gin)
 │   ├── model/             # request/response structs
 │   ├── repository/        # Redis logic
@@ -34,7 +34,7 @@ url-shortener/
 docker compose up --build
 ```
 
-That's it. Spins up the app on `:8080` and Redis on `:6379`.
+Spins up the app on `:8080` and Redis on `:6379`.
 
 **Locally** (Redis must already be running):
 
@@ -44,7 +44,7 @@ go mod tidy
 go run ./cmd/url-shortener
 ```
 
-## Usage
+## Example of use
 
 **Shorten a URL:**
 
@@ -66,7 +66,7 @@ curl -L http://localhost:8080/aB3kR9x
 
 ## Configuration
 
-All config is done through environment variables. Defaults work out of the box for local dev.
+All config is done through environment variables. Check .env.example
 
 | Variable      | Default                 | Description                     |
 | ------------- | ----------------------- | ------------------------------- |

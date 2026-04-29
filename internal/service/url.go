@@ -26,19 +26,19 @@ func (s *urlService) Shorten(ctx context.Context, originalURL string) (string, e
 	code := randstr.Generate(7)
 
 	if err := s.repo.Save(ctx, code, originalURL); err != nil {
-		return "", fmt.Errorf("failed to shorten: %w", err)
+		return "", fmt.Errorf("%w: %w", errors.ErrURLSaveFailed, err)
 	}
 	
 	return s.baseURL + "/" + code, nil
 }
 
 func (s *urlService) Resolve(ctx context.Context, code string) (string, error) {
-	url, err := s.repo.Get(ctx, code);
+	url, err := s.repo.Get(ctx, code)
 	if err != nil {
-		return "", fmt.Errorf("failed to resolve: %w", err)
+		return "", fmt.Errorf("%w: %w", errors.ErrURLResolveFailed, err)
 	}
 	if url == "" {
-		return "", errors.ErrUrlNotFound
+		return "", errors.ErrURLNotFound
 	}
 	return url, nil
 }

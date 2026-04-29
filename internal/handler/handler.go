@@ -35,7 +35,7 @@ func (h *Handler) shorten(c *gin.Context) {
 	}
 
 	originalURL := request.URL
-	shortURL, err := h.service.Shorten(ctx, originalURL);
+	shortURL, err := h.service.Shorten(ctx, originalURL)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "could not shorten url",
@@ -51,12 +51,12 @@ func (h *Handler) shorten(c *gin.Context) {
 func (h *Handler) redirect(c *gin.Context) {
 	code := c.Param("code")
 	ctx := c.Request.Context()
-	orignalURL, err := h.service.Resolve(ctx, code)
+	originalURL, err := h.service.Resolve(ctx, code)
 	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{
-			"error": errors.ErrUrlNotFound,
+			"error": errors.ErrURLNotFound.Error(),
 		})
 		return
 	}
-	c.Redirect(http.StatusMovedPermanently, orignalURL)
+	c.Redirect(http.StatusMovedPermanently, originalURL)
 }

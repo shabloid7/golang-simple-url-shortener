@@ -3,5 +3,7 @@ package errors
 import "errors"
 
 var (
-	ErrUrlNotFound = errors.New("url not found")
+	ErrURLNotFound = errors.New("url not found")
+	ErrURLSaveFailed = errors.New("failed to save url")
+	ErrURLResolveFailed = errors.New("failed to resolve url")
 )
