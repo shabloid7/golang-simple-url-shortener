@@ -2,10 +2,10 @@ package main
 
 import (
 	"log"
-	"url-shortener/internal/config"
-	"url-shortener/internal/handler"
-	"url-shortener/internal/repository"
-	"url-shortener/internal/service"
+	"github.com/shabloid7/golang-simple-url-shortener/internal/config"
+	"github.com/shabloid7/golang-simple-url-shortener/internal/handler"
+	"github.com/shabloid7/golang-simple-url-shortener/internal/repository"
+	"github.com/shabloid7/golang-simple-url-shortener/internal/service"
 
 	"github.com/gin-gonic/gin"
 	"github.com/redis/go-redis/v9"

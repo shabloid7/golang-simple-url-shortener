@@ -3,9 +3,10 @@ package service
 import (
 	"context"
 	"fmt"
-	"url-shortener/internal/errors"
-	"url-shortener/internal/pkg/randstr"
-	"url-shortener/internal/repository"
+
+	"github.com/shabloid7/golang-simple-url-shortener/internal/errors"
+	"github.com/shabloid7/golang-simple-url-shortener/internal/pkg/randstr"
+	"github.com/shabloid7/golang-simple-url-shortener/internal/repository"
 )
 
 type URLService interface {

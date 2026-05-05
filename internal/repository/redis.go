@@ -26,7 +26,7 @@ func NewRedisRepository(client *redis.Client) URLRepository {
 
 
 func (r *redisRepository) Save(ctx context.Context, code string, url string) error {
-	return r.client.Set(ctx, code, url, TTL).Err()	
+	return r.client.Set(ctx, code, url, TTL).Err()
 }
 
 func (r *redisRepository) Get(ctx context.Context, code string) (string, error) {

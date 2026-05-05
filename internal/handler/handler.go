@@ -2,9 +2,9 @@ package handler
 
 import (
 	"net/http"
-	"url-shortener/internal/errors"
-	"url-shortener/internal/model"
-	"url-shortener/internal/service"
+	"github.com/shabloid7/golang-simple-url-shortener/internal/errors"
+	"github.com/shabloid7/golang-simple-url-shortener/internal/model"
+	"github.com/shabloid7/golang-simple-url-shortener/internal/service"
 
 	"github.com/gin-gonic/gin"
 )
@@ -27,15 +27,16 @@ func (h *Handler) RegisterRoutes(r *gin.Engine) {
 func (h *Handler) shorten(c *gin.Context) {
 	var request model.ShortenRequest
 	ctx := c.Request.Context()
-	if err := c.ShouldBindJSON(&request); err != nil {
+
+	if err := c.ShouldBind(&request); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
-		return
 	}
-
+	
 	originalURL := request.URL
 	shortURL, err := h.service.Shorten(ctx, originalURL)
+
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "could not shorten url",

@@ -15,7 +15,7 @@ url-shortener/
 ├── cmd/url-shortener/     # entry point
 ├── internal/
 │   ├── config/            # reads env variables
-│   ├── errors/            # prepared errors
+│   ├── errors/            # predefined errors
 │   ├── handler/           # HTTP handlers (Gin)
 │   ├── model/             # request/response structs
 │   ├── repository/        # Redis logic
