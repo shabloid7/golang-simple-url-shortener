@@ -1,0 +1,43 @@
+# Git
+.git
+.gitignore
+
+# Environment
+.env
+.env.*
+
+# Build output
+bin/
+build/
+dist/
+*.exe
+*.out
+*.test
+
+# Go cache
+go.mod~
+
+# IDE / editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker files (optional safety)
+Dockerfile
+docker-compose.yml
+
+# Testing
+coverage.out
+*.cover
+
+# Temporary files
+tmp/
+temp/
